@@ -1,7 +1,34 @@
 # Lecture #2 OOP
 # Task 4
+from abc import abstractmethod, ABC
 
-class HPLaptop:
+class Laptop:
+    @abstractmethod
+    def Screen(self):
+        raise NotImplementedError('This method must be defined!')
+
+    @abstractmethod
+    def Keyboard(self):
+        raise NotImplementedError('This method must be defined!')
+
+    @abstractmethod
+    def Touchpad(self):
+        raise NotImplementedError('This method must be defined!')
+
+    @abstractmethod
+    def WebCam(self):
+        raise NotImplementedError('This method must be defined!')
+
+    @abstractmethod
+    def Ports(self):
+        raise NotImplementedError('This method must be defined!')
+
+    @abstractmethod
+    def Dynamics(self):
+        raise NotImplementedError('This method must be defined!')
+
+
+class HPLaptop(Laptop):
     def __init__(self):
         pass
 
