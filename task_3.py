@@ -44,7 +44,7 @@ print(person1.to_dict())
 
 class DictMixin():
     def to_dict(self):
-        return list(self.__dict__.values())
+        return self.__dict__
 
 
 class Profile(DictMixin):
@@ -60,5 +60,6 @@ class Profile(DictMixin):
 
 
 person1 = Profile('Sara', 'Smith', '+39393939', 'Lviv', 'email@email', 'april 22', 30, 'woman')
-print(person1.to_dict())
-
+personinfo1 = person1.to_dict()
+print(f"Hello, my name is {personinfo1['name']} {personinfo1['last_name']}, tel: {personinfo1['phone_namber']}, e-mail {personinfo1['email']}")
+print(f"I live in {personinfo1['address']}, my birthday {personinfo1['birthday']}, I am {personinfo1['age']} years old and I am a {personinfo1['sex']}")
