@@ -1,4 +1,5 @@
 from abc import abstractmethod, ABC
+from random import randint
 
 
 class House(ABC):
@@ -56,8 +57,10 @@ class Realtor(metaclass=RealtorMeta):
     def give_discount(self):
         print(f"I can give you discount: {self.realtor_discount}%")
 
-    def steal_money(self):
-        pass
+    def steal_money(self, person):
+        if randint(0, 10) == 0:
+            print(f'Realtor {self.realtor_name} stole money !!!')
+            person.person_money = 0
 
 
 class OneHouse(House):
@@ -118,6 +121,7 @@ while buy_ok != 'Y' and buy_ok != 'N':
     buy_ok = input('Please enter Y or N : ')
 
     if buy_ok == "Y":
+        realtor.steal_money(person1)
         house1.apply_discount(realtor.realtor_discount)
         person1.make_money(house1.house_cost)
         person1.buy_house(house1.house_area, house1.house_cost)
